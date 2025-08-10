@@ -1,8 +1,5 @@
-
-
-<app-players *ngFor="let eachPlayer of game.players; let i = index"
-    [ngStyle]="{'top.px': 50 + (i * 100)}" [name]="eachPlayer" class="playersBarPosition"
-    [ifPlayerActive]="i == game.currentPlayer">
+<app-players *ngFor="let eachPlayer of game.players; let i = index" [ngStyle]="{'top.px': 50 + (i * 100)}"
+    [name]="eachPlayer" class="playersBarPosition" [ifPlayerActive]="i == game.currentPlayer">
 </app-players>
 
 
@@ -14,22 +11,22 @@
 
         <!-- stack of cards, cover side -->
         @for (card of [0, 1, 2, 3]; track card ; let index = $index) {
-             <img [ngStyle]="{'right.px': index * 5}" src="/assets/img/playing_cards/card_cover.png" alt="playing-card">
+        <img [ngStyle]="{'right.px': index * 5}" src="assets/img/playing_cards/card_cover.png" alt="playing-card">
         }
-         <img (click)="pickCard()" class="focus-top-card" style="right: 25px" 
-         src="/assets/img/playing_cards/card_cover.png" alt="playing-card">
+        <img (click)="pickCard()" class="focus-top-card" style="right: 25px"
+            src="assets/img/playing_cards/card_cover.png" alt="playing-card">
 
         <!-- shows stack with played cards -->
         @for(card of game.playedCards; track card){
-            <img class="played-card" src="/assets/img/playing_cards/{{ card }}.png" alt="">
-         }
-         <!--another For-Loop posibility:    
-         <img *ngFor="let card of game.playedCards" class="played-card" src="/assets/img/playing_cards/{{ card }}.png" alt=""> -->
+        <img class="played-card" src="assets/img/playing_cards/{{ card }}.png" alt="">
+        }
+        <!--another For-Loop posibility:    
+         <img *ngFor="let card of game.playedCards" class="played-card" src="assets/img/playing_cards/{{ card }}.png" alt=""> -->
 
 
-         <!-- shows picked card and then the animation (flying)  -->
-         <img *ngIf="pickCardAnimation" [class.pick-card-animation]="pickCardAnimation" style="right: 25px" 
-         src="/assets/img/playing_cards/{{ currentCard }}.png" alt="playing-card">
+        <!-- shows picked card and then the animation (flying)  -->
+        <img *ngIf="pickCardAnimation" [class.pick-card-animation]="pickCardAnimation" style="right: 25px"
+            src="assets/img/playing_cards/{{ currentCard }}.png" alt="playing-card">
 
     </div>
 
@@ -37,7 +34,6 @@
 
 <app-tasks-for-players [card]="currentCard"></app-tasks-for-players>
 
- <button mat-fab class="btn-add" (click)="openDialog()">
+<button mat-fab class="btn-add" (click)="openDialog()">
     <mat-icon>add</mat-icon>
 </button>
-
